@@ -46,9 +46,9 @@ characters={
 }
 
 client = discord.Client()
-user = 'hpYv82yNd5EIqd68'
-key = 'BSUAj6I8yftU0ywJ9zfqMp8TCNy0ln2s'
-Id = "654f274575b1e11"
+user = 'User'
+key = 'Key'
+Id = "Id"
 client2 = pyimgur.Imgur(Id)
 
 @client.event
@@ -98,16 +98,16 @@ async def on_message(message):
                 await client.delete_message(tmp1)
                 await client.send_file(message.channel, "D:/Bodykudo/Work/Captain Jack/skills/"+str(name)+".png")
                 os.remove("D:/Bodykudo/Work/Captain Jack/skills/"+str(name)+".png")
-            #elif message.content.startswith('!image '):
-            #    tmp1 = await client.send_message(message.channel, 'Wait please...')
-            #    url = message.content.split('!image ')[1]
-            #    image = url.split('/')[-1]
-            #    image = image if len(image.split('.')) == 2 else image+".png"
-            #    DownloadFile(url,"D:/بودى 10/Work/Captain Jack/images/"+str(image)+"")
-            #    uploaded_image = client2.upload_image("D:/بودى 10/Work/Captain Jack/images/"+str(image)+"", title=str(image))
-            #    await client.send_message(message.channel, "**"+str(uploaded_image.title)+"**\nType : **"+str(uploaded_image.type)+"**\nSize : **"+str(uploaded_image.size)+"**\n**"+str(uploaded_image.link)+"**")
-            #    await client.delete_message(tmp1)
-            #    os.remove("D:/بودى 10/Work/Captain Jack/images/"+str(image)+"")
+            elif message.content.startswith('!image '):
+                tmp1 = await client.send_message(message.channel, 'Wait please...')
+                url = message.content.split('!image ')[1]
+                image = url.split('/')[-1]
+                image = image if len(image.split('.')) == 2 else image+".png"
+                DownloadFile(url,"D:/Bodykudo/Work/Captain Jack/images/"+str(image)+"")
+                uploaded_image = client2.upload_image("D:/بودى 10/Work/Captain Jack/images/"+str(image)+"", title=str(image))
+                await client.send_message(message.channel, "**"+str(uploaded_image.title)+"**\nType : **"+str(uploaded_image.type)+"**\nSize : **"+str(uploaded_image.size)+"**\n**"+str(uploaded_image.link)+"**")
+                await client.delete_message(tmp1)
+                os.remove("D:/Bodykudo/Work/Captain Jack/images/"+str(image)+"")
             elif message.content.startswith('!profile '):
                 tmp1 = await client.send_message(message.channel, 'Wait please...')
                 name = message.content.split('!profile ')[1]
@@ -279,4 +279,4 @@ async def on_member_join(member):
     await client.send_message(channel, fmt.format(member, server))
 
 requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'frost'})
-client.run('MzIxNTA1MjM1NTIyODEzOTYy.DCHhAw.sZmXQL650nwh97DKIV3yzOwmHFk')
+client.run('Token')
